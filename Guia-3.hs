@@ -30,7 +30,7 @@ absoluto n = abs n
 -- b) Devuelve el maximo entre el valor absoluto de dos numeros enteros
 maximoAbsoluto :: Integer -> Integer -> Integer
 maximoAbsoluto x y | absoluto x >= absoluto y = x
-                   | absoluto y > absoluto x = y
+                   | absoluto y >= absoluto x = y
 
 -- c) Devuelve el maximo entre tres numeros enteros
 maximo3 :: Integer -> Integer -> Integer -> Integer
@@ -57,3 +57,33 @@ ambosSon0 x y | x == 0 && y == 0 = True
 ambosSon0PM :: Float -> Float -> Bool
 ambosSon0PM 0 0 = True
 ambosSon0PM _ _ = False
+
+-- f) Dados dos numeros reales, indica si pertenecen al mismo intervalo (−∞, 3], (3, 7] y (7, ∞)
+mismoIntervalo :: Integer -> Integer -> Bool
+mismoIntervalo x y | (x <= 3 && y <= 3) = True
+                   | (3 < x && x < 8) && (3 < y && y < 8) = True
+                   | (x > 7 && y > 7) = True
+                   | otherwise = False
+
+-- g) Dados tres numeros enteros calcule la suma sin sumar repetidos (si los hubiera)
+sumaDistintos :: Integer -> Integer -> Integer -> Integer
+sumaDistintos x y z | x /= y && x /= z && y /= z = x + y + z
+                    | x == y && y == z = 0
+                    | x == y = z
+                    | x == z = y
+                    | y == z = x
+
+-- h) Dados dos numeros naturales, decidir si el primero es multiplo del segundo
+esMultiploDe :: Int -> Int -> Bool
+esMultiploDe x y | x `mod` y == 0 = True
+                 | otherwise = False
+
+-- i) Dado un numero natural, extrae su digito de las unidades
+digitoUnidades :: Int -> Int
+digitoUnidades x | x < 0 = ((-1) * x) `mod` 10
+                 | otherwise = x `mod` 10
+
+-- j) Dado un numero natural, extrae su digito de las decenas
+digitoDecenas :: Int -> Int
+digitoDecenas x | x < 0 = (((-1) * x) `div` 10) `mod` 10
+                | otherwise = (x `div` 10) `mod` 10
