@@ -87,3 +87,17 @@ digitoUnidades x | x < 0 = ((-1) * x) `mod` 10
 digitoDecenas :: Int -> Int
 digitoDecenas x | x < 0 = (((-1) * x) `div` 10) `mod` 10
                 | otherwise = (x `div` 10) `mod` 10
+
+-- EJERCICIO 3
+-- problema estanRelacionados (a:Z, b:Z) : Bool {
+-- requiere: {a 6= 0 ∧ b 6= 0}
+-- asegura: {(res = true) ↔ a ∗ a + a ∗ b ∗ k = 0 para alg´un k ∈ Z con k /= 0)}
+-- }
+
+estanRelacionados :: Integer -> Integer -> Bool
+estanRelacionados a b = undefined
+
+-- EJERCICIO 4
+-- a)
+productoInterno :: (Integer, Integer) -> (Integer, Integer) -> Integer
+productoInterno (a1, a2) (b1, b2) = a1 * b1 + a2 * b2
