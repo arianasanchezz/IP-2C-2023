@@ -98,7 +98,7 @@ estanRelacionados :: Integer -> Integer -> Bool
 estanRelacionados a b = undefined
 
 -- EJERCICIO 4
--- a)
+-- a) calcula el producto interno entre dos tuplas R × R
 productoInterno :: (Integer, Integer) -> (Integer, Integer) -> Integer
 productoInterno (a1, a2) (b1, b2) = a1 * b1 + a2 * b2
 
@@ -110,3 +110,14 @@ sumaDivisoresHasta :: Integer -> Integer -> Integer
 sumaDivisoresHasta n 1 = 1
 sumaDivisoresHasta n i | (n `mod` i == 0) = i + sumaDivisoresHasta n (i-1)
                        | otherwise = sumaDivisoresHasta n (i-1)
+
+-- cont. Ej 4)
+-- b) dadas dos tuplas R×R, decide si es cierto que cada coordenada de la primera tupla es menor a la coordenada 
+-- correspondiente de la segunda tupla
+todoMenor :: (Integer, Integer) -> (Integer, Integer) -> Bool
+todoMenor (ax,ay) (bx,by) | (bx > ax) && (by > ay) = True
+                          | otherwise = False
+
+-- c) calcula la distancia entre dos puntos de R^2
+distanciaPuntos :: (Float, Float) -> (Float, Float) -> Float
+distanciaPuntos (ax,ay) (bx,by) = sqrt ((bx-ax)^2 + (by-ay)^2)
