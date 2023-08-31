@@ -101,3 +101,12 @@ estanRelacionados a b = undefined
 -- a)
 productoInterno :: (Integer, Integer) -> (Integer, Integer) -> Integer
 productoInterno (a1, a2) (b1, b2) = a1 * b1 + a2 * b2
+
+-- EJEMPLO DE CLASE TEORICA 31/8
+sumaDivisores :: Integer -> Integer
+sumaDivisores n = sumaDivisoresHasta n n
+
+sumaDivisoresHasta :: Integer -> Integer -> Integer
+sumaDivisoresHasta n 1 = 1
+sumaDivisoresHasta n i | (n `mod` i == 0) = i + sumaDivisoresHasta n (i-1)
+                       | otherwise = sumaDivisoresHasta n (i-1)
