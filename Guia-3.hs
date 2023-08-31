@@ -121,3 +121,7 @@ todoMenor (ax,ay) (bx,by) | (bx > ax) && (by > ay) = True
 -- c) calcula la distancia entre dos puntos de R^2
 distanciaPuntos :: (Float, Float) -> (Float, Float) -> Float
 distanciaPuntos (ax,ay) (bx,by) = sqrt ((bx-ax)^2 + (by-ay)^2)
+
+-- d) dada una terna de enteros, calcula la suma de sus tres elementos
+sumaTerna :: (Integer, Integer, Integer) -> Integer
+sumaTerna (a, b, c) = a + b + c
