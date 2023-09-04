@@ -20,7 +20,11 @@ parteEntera x | 0 <= x && x < 1 = 0
 
 -- EJERCICIO 3
 esDivisible :: Integer -> Integer -> Bool
-esDivisible x y = undefined
+esDivisible a b | b == 0 = False
+                | a < b = False
+                | a == b = True
+                | b == 1 = True
+                | esDivisible = undefined
 
 -- EJERCICIO 4
 sumaImpares :: Integer -> Integer
