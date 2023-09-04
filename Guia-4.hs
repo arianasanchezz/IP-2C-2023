@@ -13,5 +13,11 @@ fibonacci n | n == 0 = 0
 
 -- EJERCICIO 2
 parteEntera :: Float -> Integer
-parteEntera x | 0 < x && x < 1 = 0
-              | otherwise = 1 + parteEntera (x-1)
+parteEntera x | 0 <= x && x < 1 = 0
+              | x >= 1 = 1 + parteEntera (x-1)
+              | x < 0 && x > -1 = 0
+              | x <= -1 = (-1) + parteEntera (x+1)
+
+-- EJERCICIO 3
+esDivisible :: Integer -> Integer -> Bool
+esDivisible = undefined
