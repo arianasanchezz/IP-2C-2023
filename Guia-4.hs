@@ -20,7 +20,11 @@ parteEntera x | 0 <= x && x < 1 = 0
 
 -- EJERCICIO 3
 esDivisible :: Integer -> Integer -> Bool
-esDivisible = undefined
+esDivisible x y = undefined
+
+-- EJERCICIO 4
+sumaImpares :: Integer -> Integer
+sumaImpares = undefined
 
 -- EJERCICIO 7
 todosDigitosIguales :: Integer -> Bool
@@ -36,3 +40,12 @@ anteultimoDigito x = (x `div` 10) `mod` 10
 
 sacarUltimo :: Integer -> Integer
 sacarUltimo x = x `div` 10
+
+-- EJERCICIO 8
+iesimoDigito :: Integer -> Integer -> Integer
+iesimoDigito n i | (i == cantidadDigitos n) = ultimoDigito n
+                 | otherwise = iesimoDigito (sacarUltimo n) i 
+
+cantidadDigitos :: Integer -> Integer
+cantidadDigitos x | x < 10 = 1
+                  | otherwise = 1 + cantidadDigitos (sacarUltimo x)
