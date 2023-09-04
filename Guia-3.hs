@@ -145,3 +145,21 @@ posPrimerPar (x, y, z) | x `mod` 2 == 0 = 1
                        | z `mod` 2 == 0 = 3
                        | otherwise = 4
 
+esPar :: Int -> Bool
+esPar x = (x `mod` 2 == 0)
+
+-- Otra forma usando esPar
+posPrimerPar2 :: (Int, Int, Int) -> Int
+posPrimerPar2 (x, y, z) 
+        | esPar x = 1
+        | esPar y = 2
+        | esPar z = 3
+        | otherwise = 4
+
+-- g) crea un par a partir de sus dos componentes dadas por separado (debe funcionar para elementos de cualquier tipo).
+crearPar :: a -> b -> (a,b)
+crearPar a b = (a, b)
+
+-- h) invierte los elementos del par pasado como parametro (debe funcionar para elementos de cualquier tipo)
+invertir :: (a,b) -> (b,a)
+invertir (a, b) = (b, a)
