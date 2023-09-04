@@ -15,8 +15,8 @@ fibonacci n | n == 0 = 0
 parteEntera :: Float -> Integer
 parteEntera x | 0 <= x && x < 1 = 0
               | x >= 1 = 1 + parteEntera (x-1)
-              | x < 0 && x > -1 = 0
-              | x <= -1 = (-1) + parteEntera (x+1)
+              | x < 0 && x >= -1 = -1
+              | x < -1 = (-1) + parteEntera (x+1)
 
 -- EJERCICIO 3
 esDivisible :: Integer -> Integer -> Bool
