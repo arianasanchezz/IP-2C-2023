@@ -2,6 +2,7 @@
 doubleMe :: Integer -> Integer
 doubleMe x = x + x
 
+-- GUIA PRACTICA 3 (Introduccion a Haskell)
 -- EJERCICIO 1
 -- a)
 f :: Integer -> Integer
@@ -48,7 +49,8 @@ algunoEs0PM 0 _ = True
 algunoEs0PM _ 0 = True
 algunoEs0PM _ _ = False
 
--- e) Dados dos numeros racionales, decide si ambos son iguales a 0
+-- e) Dados dos numeros racionales, decide si ambos son igualemetro (debe funcionar para elementosde cualquier tipo)
+s a 0
 ambosSon0 :: Float -> Float -> Bool
 ambosSon0 x y | x == 0 && y == 0 = True
               | otherwise = False
