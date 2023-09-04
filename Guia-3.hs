@@ -129,3 +129,19 @@ distanciaPuntos (ax,ay) (bx,by) = sqrt ((bx-ax)^2 + (by-ay)^2)
 -- d) dada una terna de enteros, calcula la suma de sus tres elementos
 sumaTerna :: (Integer, Integer, Integer) -> Integer
 sumaTerna (a, b, c) = a + b + c
+
+-- e) dada una terna de numeros enteros y un natural, calcula la suma de los elementos de la terna que son múltiplos del número natural
+sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
+sumarSoloMultiplos (a, b, c) n | (a `mod` n == 0) && (b `mod` n == 0) && (c `mod` n == 0) = a + b + c 
+                               | (a `mod` n == 0) && (b `mod` n == 0) = a + b 
+                               | (a `mod` n == 0) && (c `mod` n == 0) = a + c 
+                               | (b `mod` n == 0) && (c `mod` n == 0) = b + c
+                               | otherwise = 0
+
+-- f) dada una terna de enteros, devuelve la posicion del primer numero par si es que hay alguno, y devuelve 4 si son todos impares
+posPrimerPar :: (Integer, Integer, Integer) -> Integer
+posPrimerPar (x, y, z) | x `mod` 2 == 0 = 1
+                       | y `mod` 2 == 0 = 2
+                       | z `mod` 2 == 0 = 3
+                       | otherwise = 4
+
