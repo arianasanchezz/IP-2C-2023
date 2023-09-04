@@ -21,3 +21,17 @@ parteEntera x | 0 <= x && x < 1 = 0
 -- EJERCICIO 3
 esDivisible :: Integer -> Integer -> Bool
 esDivisible = undefined
+
+-- EJERCICIO 7
+todosDigitosIguales :: Integer -> Bool
+todosDigitosIguales n | n < 10 = True
+                      | otherwise = (ultimoDigito n == anteultimoDigito n) && todosDigitosIguales (sacarUltimo n)
+
+ultimoDigito :: Integer -> Integer
+ultimoDigito x = x `mod` 10
+
+anteultimoDigito :: Integer -> Integer
+anteultimoDigito x = (x `div` 10) `mod` 10
+
+sacarUltimo :: Integer -> Integer
+sacarUltimo x = x `div` 10
