@@ -27,8 +27,9 @@ todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales n | n < 10 = True
                       | otherwise = (ultimoDigito n == anteultimoDigito n) && todosDigitosIguales (sacarUltimo n)
 
+--Funciones auxiliares
 ultimoDigito :: Integer -> Integer
-ultimoDigito x = x `mod` 10
+ultimoDigito x = x `mod` 10 
 
 anteultimoDigito :: Integer -> Integer
 anteultimoDigito x = (x `div` 10) `mod` 10
