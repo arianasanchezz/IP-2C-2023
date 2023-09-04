@@ -118,6 +118,10 @@ todoMenor :: (Integer, Integer) -> (Integer, Integer) -> Bool
 todoMenor (ax,ay) (bx,by) | (bx > ax) && (by > ay) = True
                           | otherwise = False
 
+-- Otra forma de hacerlo usando fst y snd (hecho en Clase Práctica)
+todoMenor2 :: (Float, Float) -> (Float, Float) -> Bool
+todoMenor2 u v = (fst u < fst v) && (snd u < snd v)
+
 -- c) calcula la distancia entre dos puntos de R^2
 distanciaPuntos :: (Float, Float) -> (Float, Float) -> Float
 distanciaPuntos (ax,ay) (bx,by) = sqrt ((bx-ax)^2 + (by-ay)^2)
