@@ -56,3 +56,8 @@ palabraMasLargaAux :: [Char] -> [Char]
 palabraMasLargaAux (x:xs) | sacarPrimeraPalabra (x:xs) == [] = primeraPalabra (x:xs)
                           | length (primeraPalabra (x:xs)) > length (primeraPalabra (sacarPrimeraPalabra (x:xs))) = primeraPalabra (x:xs)
                           | otherwise = palabraMasLargaAux xs
+
+-- e) que a partir de una lista de palabras arma una lista de caracteres concatenandolas
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar (xs:xss) = xs ++ aplanar xss
