@@ -63,3 +63,12 @@ iesimoDigito n i | (i == cantidadDigitos n) = ultimoDigito n
 cantidadDigitos :: Integer -> Integer
 cantidadDigitos x | x < 10 = 1
                   | otherwise = 1 + cantidadDigitos (sacarUltimo x)
+
+-- EJERCICIO 13 (doble sumatoria, hecho en clase 7/9)
+sumatoriaDoble :: Integer -> Integer -> Integer
+sumatoriaDoble 0 _ = 0
+sumatoriaDoble n m = sumatoriaInterna n m + sumatoriaInterna (n-1) m
+
+sumatoriaInterna :: Integer -> Integer -> Integer
+sumatoriaInterna _ 0 = 0
+sumatoriaInterna n m = n ^ m + sumatoriaInterna n (m-1)
