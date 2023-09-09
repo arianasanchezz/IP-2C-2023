@@ -22,13 +22,23 @@ parteEntera x | 0 <= x && x < 1 = 0
 esDivisible :: Integer -> Integer -> Bool
 esDivisible a b | b == 0 = False
                 | a < b = False
+                | a == 0 = True
                 | a == b = True
                 | b == 1 = True
-                | esDivisible = undefined
+                | b < 0 = esDivisible (a + b) b
+                | otherwise = esDivisible (a - b) b
 
 -- EJERCICIO 4
 sumaImpares :: Integer -> Integer
-sumaImpares = undefined
+sumaImpares n | n == 0 = 0
+              | (esPar n == True) = sumaImpares (n-1)
+              | otherwise = sumaImpares (n-1) + n
+
+esPar :: Integer -> Bool
+esPar x = (x `mod` 2 == 0) --no me salió todavía
+
+-- EJERCICIO 5
+
 
 -- EJERCICIO 7
 todosDigitosIguales :: Integer -> Bool
