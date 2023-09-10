@@ -39,6 +39,11 @@ esPar x = (x `mod` 2 == 0) --no me salió todavía
 
 -- EJERCICIO 5
 
+-- EJERCICIO 6
+sumaDigitos :: Integer -> Integer
+sumaDigitos 0 = 0
+sumaDigitos n | n < 10 = n
+              | otherwise = ultimoDigito n + sumaDigitos (sacarUltimo n)
 
 -- EJERCICIO 7
 todosDigitosIguales :: Integer -> Bool
@@ -63,6 +68,14 @@ iesimoDigito n i | (i == cantidadDigitos n) = ultimoDigito n
 cantidadDigitos :: Integer -> Integer
 cantidadDigitos x | x < 10 = 1
                   | otherwise = 1 + cantidadDigitos (sacarUltimo x)
+
+-- EJERCICIO 9 (esCapicua)
+
+-- EJERCICIO 10
+-- a)
+f1 :: Integer -> Integer
+f1 0 = 1
+f1 n = (2 ^ n) + f1 (n-1)
 
 -- EJERCICIO 13 (doble sumatoria, hecho en clase 7/9)
 sumatoriaDoble :: Integer -> Integer -> Integer
