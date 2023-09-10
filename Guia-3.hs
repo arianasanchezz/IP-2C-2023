@@ -187,3 +187,20 @@ bisiesto n | not (n `mod` 4 == 0) = False
 -- EJERCICIO 7
 distanciaManhattan :: (Float, Float, Float) -> (Float, Float, Float) -> Float
 distanciaManhattan (p1,p2,p3) (q1,q2,q3) = abs ((p1-q1) + (p2-q2) + (p3-q3))
+
+-- EJERCICIO 8
+comparar :: Integer -> Integer -> Integer
+comparar a b | (sumaUltimosDosDigitos a) < (sumaUltimosDosDigitos b) = 1
+             | (sumaUltimosDosDigitos a) > (sumaUltimosDosDigitos b) = (-1)
+             | (sumaUltimosDosDigitos a) == (sumaUltimosDosDigitos b) = 0
+
+sumaUltimosDosDigitos :: Integer -> Integer
+sumaUltimosDosDigitos n = ultimoDigito n + penultimoDigito n
+
+ultimoDigito :: Integer -> Integer
+ultimoDigito n = n `mod` 10
+
+penultimoDigito :: Integer -> Integer
+penultimoDigito n = ultimoDigito (n `div` 10)
+
+-- falta ej 9 de especificacion :)
