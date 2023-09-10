@@ -49,8 +49,7 @@ algunoEs0PM 0 _ = True
 algunoEs0PM _ 0 = True
 algunoEs0PM _ _ = False
 
--- e) Dados dos numeros racionales, decide si ambos son igualemetro (debe funcionar para elementosde cualquier tipo)
-s a 0
+-- e) Dados dos numeros racionales, decide si ambos son igualemetro (debe funcionar para elementos de cualquier tipo) s a 0
 ambosSon0 :: Float -> Float -> Bool
 ambosSon0 x y | x == 0 && y == 0 = True
               | otherwise = False
@@ -147,11 +146,11 @@ posPrimerPar (x, y, z) | x `mod` 2 == 0 = 1
                        | z `mod` 2 == 0 = 3
                        | otherwise = 4
 
-esPar :: Int -> Bool
+esPar :: Integer -> Bool
 esPar x = (x `mod` 2 == 0)
 
 -- Otra forma usando esPar
-posPrimerPar2 :: (Int, Int, Int) -> Int
+posPrimerPar2 :: (Integer, Integer, Integer) -> Integer
 posPrimerPar2 (x, y, z) 
         | esPar x = 1
         | esPar y = 2
@@ -165,3 +164,16 @@ crearPar a b = (a, b)
 -- h) invierte los elementos del par pasado como parametro (debe funcionar para elementos de cualquier tipo)
 invertir :: (a,b) -> (b,a)
 invertir (a, b) = (b, a)
+
+-- EJERCICIO 5
+
+f5 :: Integer -> Integer
+f5 n | n <= 7 = n^2
+     | n > 7 = (2*n - 1)
+
+g5 :: Integer -> Integer
+g5 n | esPar n = n `div` 2
+     | otherwise = 3*n + 1
+
+todosMenores :: (Integer, Integer, Integer) -> Bool
+todosMenores (n1, n2, n3) = ((f5 n1) > (g5 n1)) && ((f5 n2) > (g5 n2)) && ((f5 n3) > (g5 n3))
