@@ -77,6 +77,20 @@ f1 :: Integer -> Integer
 f1 0 = 1
 f1 n = (2 ^ n) + f1 (n-1)
 
+-- b)
+f2 :: Integer -> Integer -> Integer
+f2 q 1 = q
+f2 q n = (q ^ n) + f2 q (n-1)
+
+-- c) 
+f3 :: Integer -> Integer -> Integer
+f3 _ 0 = 0
+f3 q n = q ^ (2*n) + f3 q (n-1)
+
+-- d)
+f4 :: Integer -> Integer -> Integer
+f4 _ 0 = 0 -- tengo que pensarlo más
+
 -- EJERCICIO 13 (doble sumatoria, hecho en clase 7/9)
 sumatoriaDoble :: Integer -> Integer -> Integer
 sumatoriaDoble 0 _ = 0
