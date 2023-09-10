@@ -177,3 +177,13 @@ g5 n | esPar n = n `div` 2
 
 todosMenores :: (Integer, Integer, Integer) -> Bool
 todosMenores (n1, n2, n3) = ((f5 n1) > (g5 n1)) && ((f5 n2) > (g5 n2)) && ((f5 n3) > (g5 n3))
+
+-- EJERCICIO 6
+bisiesto :: Integer -> Bool
+bisiesto n | not (n `mod` 4 == 0) = False
+           | (n `mod` 100 == 0) && not (n `mod` 400 == 0) = False
+           | otherwise = True
+
+-- EJERCICIO 7
+distanciaManhattan :: (Float, Float, Float) -> (Float, Float, Float) -> Float
+distanciaManhattan (p1,p2,p3) (q1,q2,q3) = abs ((p1-q1) + (p2-q2) + (p3-q3))
