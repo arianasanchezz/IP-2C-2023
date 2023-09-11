@@ -105,10 +105,35 @@ sumatoriaInterna n m = n ^ m + sumatoriaInterna n (m-1)
 
 -- EJERCICIO 16
 -- a) implementar menorDivisor que calcule el menor divisor (mayor que 1) de un natural n pasado como parametro
-menorDivisor :: Integer -> Integer
+menorDivisor :: Int -> Int
 menorDivisor x = menorDivisorHasta x 2
 
-menorDivisorHasta :: Integer -> Integer -> Integer
+menorDivisorHasta :: Int -> Int -> Int
 menorDivisorHasta x d | x == d = x
                       | x `mod` d == 0 = d
                       | otherwise = menorDivisorHasta x (d+1)
+
+-- EJERCICIO 19 (true ↔ n es igual a la suma de los m primeros numeros primos, para algun m)
+esSumaInicialDePrimos :: Int -> Bool
+esSumaInicialDePrimos n = esSumaDePrimerosKPrimos n 1
+
+esSumaDePrimerosKPrimos :: Int -> Int -> Bool
+esSumaDePrimerosKPrimos n k | n == sumaDePrimerosKPrimos k = True
+                            | n < sumaDePrimerosKPrimos k = False
+                            | otherwise = esSumaDePrimerosKPrimos n (k+1)
+
+sumaDePrimerosKPrimos :: Int -> Int
+sumaDePrimerosKPrimos 1 = 2
+sumaDePrimerosKPrimos k = sumaDePrimerosKPrimos (k-1) + kEsimoPrimo k
+
+kEsimoPrimo :: Int -> Int
+kEsimoPrimo 1 = 2
+kEsimoPrimo k = proximoPrimo (kEsimoPrimo (k-1) + 1)
+
+esPrimo :: Int -> Bool
+esPrimo x = (menorDivisor x == x)
+
+proximoPrimo :: Int -> Int
+proximoPrimo x | esPrimo x = x
+               | otherwise = proximoPrimo (x+1)
+
