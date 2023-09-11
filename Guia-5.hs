@@ -8,12 +8,23 @@ longitud (x:xs) = 1 + longitud xs
 
 -- 2.
 ultimo :: [t] -> t
-ultimo = undefined
+ultimo (x:xs) | longitud (x:xs) == 1 = x
+              | otherwise = ultimo xs
+
+-- 3.
+principio :: [t] -> [t]
+principio (x:xs) | longitud (x:xs) == 1 = []
+                 | otherwise = x : principio xs
+
+-- 4. resultado tiene los mismos elementos que s pero en orden inverso
+reverso :: [t] -> [t]
+reverso [] = []
+reverso xs = ultimo xs : reverso (principio xs)
 
 -- EJERCICIO 2
 -- 1.
 pertenece :: (Eq t) => t -> [t] -> Bool
-pertenece x [] = False
+pertenece _ [] = False
 pertenece x (y:ys) | x == y = True
                    | otherwise = pertenece x ys
 
@@ -30,8 +41,7 @@ todosDistintos xs = (hayRepetidos xs) == False
 -- 4.
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos [] = False
-hayRepetidos (x:xs) | pertenece x xs = True
-                    | otherwise = hayRepetidos xs
+hayRepetidos (x:xs) = pertenece x xs || hayRepetidos xs
 
 
 -- EJERCICIO 4 (hasta inciso 5- hechos en clase del 7/9)
