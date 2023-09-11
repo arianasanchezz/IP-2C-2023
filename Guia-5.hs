@@ -43,6 +43,33 @@ hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos [] = False
 hayRepetidos (x:xs) = pertenece x xs || hayRepetidos xs
 
+-- 5. dados un entero x y una lista xs, elimina la primera aparicion de x en la lista xs (de haberla)
+quitar :: (Eq t) => t -> [t] -> [t]
+quitar _ [] = []
+quitar x (y:ys) | x /= y = x : (quitar x ys)
+                | otherwise = ys
+
+-- EJERCICIO 3
+-- 3. (hecho en clase 11/9)
+maximo :: [Integer] -> Integer
+maximo (x:[]) = x
+maximo (x:y:xs) | x > y = maximo (x:xs)
+                | otherwise = maximo (y:xs)
+
+maximo2 :: [Integer] -> Integer -- otra forma vista en clase
+maximo2 [x] = x
+maximo2 (x:xs) | x > maximo2 xs = x
+               | otherwise = maximo2 xs
+
+-- 9. ordena los elementos de la lista en forma creciente (hecho en clase, tengo que revisar detalles)
+ordenar :: [Integer] -> [Integer]
+ordenar [] = []
+ordenar xs = minimo xs : ordenar (quitar (minimo xs) xs)
+
+minimo :: [Integer] -> Integer
+minimo [x] = x
+minimo (x:y:xs) | x < y = minimo (x:xs)
+                | otherwise = minimo (y:xs)
 
 -- EJERCICIO 4 (hasta inciso 5- hechos en clase del 7/9)
 -- 1. reemplaza cada subsecuencia de blancos contiguos de la primera lista por un solo blanco en la segunda lista.
