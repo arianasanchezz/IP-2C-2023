@@ -88,14 +88,18 @@ f3 _ 0 = 0
 f3 q n = q ^ (2*n) + f3 q (n-1)
 
 -- d)
-f4 :: Integer -> Integer -> Integer
-f4 _ 0 = 0 -- tengo que pensarlo más
+-- tengo que pensarlo más
+
+-- EJERCICIO 11
+
+-- EJERCICIO 12
 
 -- EJERCICIO 13 (doble sumatoria, hecho en clase 7/9)
 sumatoriaDoble :: Integer -> Integer -> Integer
-sumatoriaDoble 0 _ = 0
-sumatoriaDoble n m = sumatoriaInterna n m + sumatoriaInterna (n-1) m
+sumatoriaDoble 1 m = sumatoriaInterna 1 m
+sumatoriaDoble n m = sumatoriaInterna n m + sumatoriaDoble (n-1) m
 
 sumatoriaInterna :: Integer -> Integer -> Integer
-sumatoriaInterna _ 0 = 0
+sumatoriaInterna n 1 = n
 sumatoriaInterna n m = n ^ m + sumatoriaInterna n (m-1)
+
