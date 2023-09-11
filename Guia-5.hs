@@ -46,7 +46,7 @@ hayRepetidos (x:xs) = pertenece x xs || hayRepetidos xs
 -- 5. dados un entero x y una lista xs, elimina la primera aparicion de x en la lista xs (de haberla)
 quitar :: (Eq t) => t -> [t] -> [t]
 quitar _ [] = []
-quitar x (y:ys) | x /= y = x : (quitar x ys)
+quitar x (y:ys) | x /= y = y : (quitar x ys)
                 | otherwise = ys
 
 -- EJERCICIO 3
@@ -61,7 +61,7 @@ maximo2 [x] = x
 maximo2 (x:xs) | x > maximo2 xs = x
                | otherwise = maximo2 xs
 
--- 9. ordena los elementos de la lista en forma creciente (hecho en clase, tengo que revisar detalles)
+-- 9. ordena los elementos de la lista en forma creciente (hecho en clase, ya lo arreglé, tenia error en funcion quitar)
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
 ordenar xs = minimo xs : ordenar (quitar (minimo xs) xs)
