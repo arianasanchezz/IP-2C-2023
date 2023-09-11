@@ -103,3 +103,12 @@ sumatoriaInterna :: Integer -> Integer -> Integer
 sumatoriaInterna n 1 = n
 sumatoriaInterna n m = n ^ m + sumatoriaInterna n (m-1)
 
+-- EJERCICIO 16
+-- a) implementar menorDivisor que calcule el menor divisor (mayor que 1) de un natural n pasado como parametro
+menorDivisor :: Integer -> Integer
+menorDivisor x = menorDivisorHasta x 2
+
+menorDivisorHasta :: Integer -> Integer -> Integer
+menorDivisorHasta x d | x == d = x
+                      | x `mod` d == 0 = d
+                      | otherwise = menorDivisorHasta x (d+1)
