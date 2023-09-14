@@ -49,6 +49,15 @@ quitar _ [] = []
 quitar x (y:ys) | x /= y = y : (quitar x ys)
                 | otherwise = ys
 
+-- 6. dados un entero x y una lista xs, elimina todas las apariciones de x en la lista xs (de haberlas)
+quitarTodos :: (Eq t) => t -> [t] -> [t]
+quitarTodos _ [] = []
+quitarTodos x (y:ys) | x /= y = y : (quitarTodos x ys)
+                     | otherwise = quitarTodos x ys
+
+-- 7. que deja en la lista una unica aparicion de cada elemento, eliminando las repeticiones adicionales
+
+
 -- EJERCICIO 3
 -- 3. (hecho en clase 11/9)
 maximo :: [Integer] -> Integer
