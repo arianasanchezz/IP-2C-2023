@@ -95,6 +95,21 @@ maximo2 [x] = x
 maximo2 (x:xs) | x > maximo2 xs = x
                | otherwise = maximo2 xs
 
+-- 4. cada posicion de resultado contiene el valor que hay en esa posicion en S sumado N
+sumarN :: Integer -> [Integer] -> [Integer]
+sumarN _ [] = []
+sumarN n (x:xs) = x + n : sumarN n xs
+
+-- 5.
+sumarElPrimero :: [Integer] -> [Integer]
+sumarElPrimero [] = []
+sumarElPrimero (x:xs) = x + x : sumarN x xs
+
+-- 6.
+sumarElUltimo :: [Integer] -> [Integer]
+sumarElUltimo [] = []
+sumarElUltimo xs = sumarN (ultimo xs) xs
+
 -- 9. ordena los elementos de la lista en forma creciente (hecho en clase, ya lo arreglé, tenia error en funcion quitar)
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
