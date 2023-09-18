@@ -74,6 +74,16 @@ capicua xs | xs == reverso xs = True
            | otherwise = False
 
 -- EJERCICIO 3
+-- 1.
+sumatoria :: [Integer] -> Integer
+sumatoria [] = 0
+sumatoria (x:xs) = x + sumatoria xs
+
+-- 2.
+productoria :: [Integer] -> Integer
+productoria [] = 1
+productoria (x:xs) = x * productoria xs
+
 -- 3. (hecho en clase 11/9)
 maximo :: [Integer] -> Integer
 maximo (x:[]) = x
