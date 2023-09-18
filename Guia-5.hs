@@ -61,6 +61,18 @@ eliminarRepetidos (x:[]) = [x]
 eliminarRepetidos (x:xs) | pertenece x xs = x : (quitarTodos x (eliminarRepetidos xs))
                          | otherwise = x : eliminarRepetidos xs
 
+-- 8. dadas dos listas devuelve verdadero si y solamente si ambas listas contienen los mismos elementos, sin tener en cuenta repeticiones
+mismosElementos :: (Eq t) => [t] -> [t] -> Bool
+mismosElementos [] [] = True
+mismosElementos [] [x] = False
+mismosElementos (x:xs) (y:ys) | (pertenece x (y:ys)) && (pertenece y (x:xs)) && mismosElementos xs ys = True
+                              | otherwise = False
+
+-- 9. 
+capicua :: (Eq t) => [t] -> Bool
+capicua xs | xs == reverso xs = True
+           | otherwise = False
+
 -- EJERCICIO 3
 -- 3. (hecho en clase 11/9)
 maximo :: [Integer] -> Integer
