@@ -53,6 +53,19 @@ relacionadosCon p ((p1,p2):xs) = amigoDe p (p1,p2) : relacionadosCon p xs
 personaConMasAmigos :: [([Char], [Char])] -> [Char] -- resu es el Strings que aparece mas veces en las tuplas de relaciones (o alguno de ellos si hay empate)
 personaConMasAmigos = undefined
 
+personaConMasAmigosAux :: [([Char],[Char])] -> [Char]
+personaConMasAmigosAux [] = []
+personaConMasAmigosAux xs | cantidadDeAmigos (primeraPersona (personas xs)) > cantidadDeAmigos (primeraPersona (sacarPrimeraPersona (personas xs))) = primeraPersona (personas xs)
+                          | otherwise = personaConMasAmigosAux (sacarPrimeraPersona (personas xs))
+
+primeraPersona :: [[Char]] -> [Char]
+primeraPersona [] = []
+primeraPersona (x:xs) = x
+
+sacarPrimeraPersona :: [[Char]] -> [[Char]]
+sacarPrimeraPersona [] = []
+sacarPrimeraPersona (x:xs) = xs
+
 cantidadDeAmigos :: [Char] -> [([Char],[Char])] -> Integer
 cantidadDeAmigos p xs = longitud (amigosDe p xs)
 
