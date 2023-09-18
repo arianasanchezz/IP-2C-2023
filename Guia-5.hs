@@ -55,8 +55,11 @@ quitarTodos _ [] = []
 quitarTodos x (y:ys) | x /= y = y : (quitarTodos x ys)
                      | otherwise = quitarTodos x ys
 
--- 7. que deja en la lista una unica aparicion de cada elemento, eliminando las repeticiones adicionales
-
+-- 7. deja en la lista una unica aparicion de cada elemento, eliminando las repeticiones adicionales
+eliminarRepetidos :: (Eq t) => [t] -> [t]
+eliminarRepetidos (x:[]) = [x]
+eliminarRepetidos (x:xs) | pertenece x xs = x : (quitarTodos x (eliminarRepetidos xs))
+                         | otherwise = x : eliminarRepetidos xs
 
 -- EJERCICIO 3
 -- 3. (hecho en clase 11/9)
