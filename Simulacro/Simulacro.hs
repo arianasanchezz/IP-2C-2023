@@ -1,3 +1,5 @@
+module Simulacro where
+
 -- SIMULACRO
 -- EJERCICIO 1
 relacionesValidas :: [([Char], [Char])] -> Bool -- no hay tuplas en relaciones con ambas componentes iguales ni tuplas repetidas (sin considerar el orden)
@@ -51,19 +53,21 @@ relacionadosCon p ((p1,p2):xs) = amigoDe p (p1,p2) : relacionadosCon p xs
 
 -- EJERCICIO 4
 personaConMasAmigos :: [([Char], [Char])] -> [Char] -- resu es el Strings que aparece mas veces en las tuplas de relaciones (o alguno de ellos si hay empate)
-personaConMasAmigos = undefined
+personaConMasAmigos rs = undefined
 
-personaConMasAmigosAux :: [([Char],[Char])] -> [Char]
-personaConMasAmigosAux [] = []
-personaConMasAmigosAux xs | cantidadDeAmigos (primeraPersona (personas xs)) > cantidadDeAmigos (primeraPersona (sacarPrimeraPersona (personas xs))) = primeraPersona (personas xs)
-                          | otherwise = personaConMasAmigosAux (sacarPrimeraPersona (personas xs))
+personaConMasAmigosAux :: [[Char]] -> [([Char],[Char])] -> [Char]
+personaConMasAmigosAux = undefined
 
 primeraPersona :: [[Char]] -> [Char]
-primeraPersona [] = []
+primeraPersona [x] = x
 primeraPersona (x:xs) = x
 
+segundaPersona :: [[Char]] -> [Char]
+segundaPersona [x] = []
+segundaPersona xs = primeraPersona (sacarPrimeraPersona xs)
+
 sacarPrimeraPersona :: [[Char]] -> [[Char]]
-sacarPrimeraPersona [] = []
+sacarPrimeraPersona [x] = []
 sacarPrimeraPersona (x:xs) = xs
 
 cantidadDeAmigos :: [Char] -> [([Char],[Char])] -> Integer
@@ -75,7 +79,7 @@ longitud (x:xs) = 1 + longitud xs
 
 -- Ejemplos
 
-usuario1 = "Juan"
+{-usuario1 = "Juan"
 usuario2 = "Natalia"
 usuario3 = "Pedro"
 usuario4 = "Lionel"
@@ -94,3 +98,5 @@ listaDeRelaciones2 = [relacion1_3, relacion2_3, relacion1_4]
 listaDeRelaciones3 = [relacion1_2, relacion1_3, relacion1_4, relacion1_5, relacion2_3, relacion2_4]
 listaDeRelacionesInvalida = [relacion1_2, relacion1_3, relacion1_2]
 listaDeRelacionesInvalida2 = [relacion1_2, relacion1_3, relacion1_1]
+
+-}
