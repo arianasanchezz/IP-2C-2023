@@ -57,7 +57,7 @@ def es_par(numero: int) -> bool:
 # Ejercicio 2.7
 # def cantidad_de_pizzas(comensales: int, min_cant_de_porciones:int) -> int:
 
-# Ejercicio 3 - Resuelva los siguientes ejercicios utilizando los operadores logicos and, or, not. Resolverlos sin utilizar alternativa condicional (if).
+# EJERCICIO 3 Resuelva los siguientes ejercicios utilizando los operadores logicos and, or, not. Resolverlos sin utilizar alternativa condicional (if).
 
 # Ejercicio 3.1
 def alguno_es_0(numero1: float, numero2: float) -> bool:
@@ -75,12 +75,70 @@ def es_nombre_largo(nombre:str) -> bool:
 def es_bisiesto(año: int) -> bool:
     return (es_multiplo_de(año,400)) or ((es_multiplo_de(año,4)) and not (es_multiplo_de(año,100)))
 
+# -
+
+# Ejercicio 4
+
+# -
+
+# EJERCICIO 5 Implementar los siguientes problemas de alternativa condicional (if)
+
 # Ejercicio 5.1 (*)
 def devolver_el_doble_si_es_par(numero:int) -> int:
-    if ((numero%2 == 0)):
+    if (es_multiplo_de(numero,2)):
         return 2*numero
     else:
         return numero
+
+# Ejercicio 5.2
+def devolver_valor_si_es_par_sino_el_que_sigue(numero:int) -> int:
+    if (es_multiplo_de(numero,2)):
+        return numero
+    else:
+        return (numero + 1)
+    
+def devolver_valor_si_es_par_sino_el_que_sigue2(numero: int) -> int:
+    if (es_multiplo_de(numero,2)):
+        return numero
+    if not (es_multiplo_de(numero,2)):
+        return (numero + 1)
+    
+# Ejercicio 5.3
+def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(numero: int) -> int:
+    if (es_multiplo_de(numero,9)):
+        return numero*3
+    else:
+        if (es_multiplo_de(numero,3)):
+            return numero*2
+        else:
+            return numero
+        
+# Ejercicio 5.4
+def lindo_nombre(nombre: str) -> str:
+    if len(nombre) >= 5:
+        return "Tu nombre tiene muchas letras!"
+    else:
+        return "Tu nombre tiene menos de 5 caracteres"
+
+# Ejercicio 5.5
+def el_rango(numero: int) -> str:
+    if numero < 5:
+        print("Menor a 5")
+    if numero >= 10 and numero <= 20:
+        print("Entre 10 y 20")
+    if numero > 20:
+        print("Mayor a 20")
+
+# Ejercicio 5.6
+def trabajo_o_vacaciones(sexo: str, edad: int) -> str:
+    if edad < 18 or ((sexo == "F") and (edad >= 60)) or ((sexo == "M") and (edad >= 65)):
+        print("Andá de vacaciones")
+    else:
+        print("Te toca trabajar")
+
+# -
+
+# EJERCICIO 6 Implementar las siguientes funciones usando repeticion condicional while
 
 # Ejercicio 6.2 (*)
 def imprimir_pares():
@@ -135,7 +193,24 @@ def cuenta_regresiva2(n: int):
 # print(ambos_son_0(0,1))
 # print(ambos_son_0(0,0))
 # print(ambos_son_0(1,1))
-print(es_bisiesto(1904))
-print(es_bisiesto(1900))
-print(es_bisiesto(2012))
-print(es_bisiesto(2013))
+# print(es_bisiesto(1904))
+# print(es_bisiesto(1900))
+# print(es_bisiesto(2012))
+# print(es_bisiesto(2013))
+# print(devolver_valor_si_es_par_sino_el_que_sigue(2))
+# print(devolver_valor_si_es_par_sino_el_que_sigue(3))
+# print(devolver_valor_si_es_par_sino_el_que_sigue2(2))
+# print(devolver_valor_si_es_par_sino_el_que_sigue2(3))
+# print(devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(36))
+# print(devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(24))
+# print(devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(20))
+# print(lindo_nombre("Ariana"))
+# print(lindo_nombre("Ivan"))
+# el_rango(4)
+# el_rango(17)
+# el_rango(25)
+# trabajo_o_vacaciones("F",22)
+# trabajo_o_vacaciones("M",13)
+# trabajo_o_vacaciones("M",60)
+# trabajo_o_vacaciones("F",85)
+# trabajo_o_vacaciones("M",91)
