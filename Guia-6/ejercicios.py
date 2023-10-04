@@ -140,6 +140,13 @@ def trabajo_o_vacaciones(sexo: str, edad: int) -> str:
 
 # EJERCICIO 6 Implementar las siguientes funciones usando repeticion condicional while
 
+# Ejercicio 6.1
+def imprimir_del_1_al_10():
+    i: int = 1
+    while (i<11):
+        print(i)
+        i += 1
+
 # Ejercicio 6.2 (*)
 def imprimir_pares():
     i: int = 10
@@ -148,12 +155,31 @@ def imprimir_pares():
             print(i)
         i += 1
 
+# Ejercicio 6.3
+def eco_eco():
+    i: int = 1
+    while (i < 11):
+        print("eco")
+        i += 1
+
 # Ejercicio 6.4 (*)
 def cuenta_regresiva(n: int):
     while (n>=1):
         print(n)
         n -= 1
     print("Despegue")
+
+# Ejercicio 6.5
+def viaje_en_el_tiempo(año_de_partida: int, año_de_llegada: int):
+    while año_de_llegada < año_de_partida:
+        print("Viajó un año al pasado, estamos en el año: <" + str(año_de_partida - 1)+">")
+        año_de_partida -= 1
+
+# Ejercicio 6.6
+def viaje_a_aristoteles(año_de_partida: int):
+    while año_de_partida >= (-364):
+        print("Viajó 20 años al pasado, estamos en el año: <" + str(año_de_partida - 20)+">")
+        año_de_partida -= 20
 
 # Ejercicio 7.2 (*)
 def imprimir_pares2():
@@ -214,3 +240,7 @@ def cuenta_regresiva2(n: int):
 # trabajo_o_vacaciones("M",60)
 # trabajo_o_vacaciones("F",85)
 # trabajo_o_vacaciones("M",91)
+# imprimir_del_1_al_10()
+# eco_eco()
+# viaje_en_el_tiempo(2010, 2004)
+# viaje_a_aristoteles((-304))
