@@ -181,10 +181,24 @@ def viaje_a_aristoteles(año_de_partida: int):
         print("Viajó 20 años al pasado, estamos en el año: <" + str(año_de_partida - 20)+">")
         año_de_partida -= 20
 
+# -
+
+# EJERCICIO 7 Implementar las funciones del ejercicio 6 utilizando for num in range(i,f,p)
+
+# Ejercicio 7.1
+def imprimir_del_1_al_10_conFor():
+    for contador in range(1,11,1):
+        print(contador)
+
 # Ejercicio 7.2 (*)
 def imprimir_pares2():
     for contador in range(10,41,2):
         print(contador)
+
+# Ejercicio 7.3
+def eco_eco_conFor():
+    for i in range(1,11,1):
+        print("eco")
 
 # Ejercicio 7.4 (*)
 def cuenta_regresiva2(n: int):
@@ -192,7 +206,15 @@ def cuenta_regresiva2(n: int):
         print(i)
     print("Despegue")
 
+# Ejercicio 7.5
+def viaje_en_el_tiempo_conFor(año_de_partida: int, año_de_llegada: int):
+    for año in range(año_de_partida-1, año_de_llegada-1, -1):
+        print("Viajó un año al pasado, estamos en el año: <" + str(año)+">")
 
+# Ejercicio 7.6
+def viaje_a_aristoteles_conFor(año_de_partida: int):
+    for año in range(año_de_partida-20,(-385),-20):
+        print("Viajó 20 años al pasado, estamos en el año <" + str(año)+">")
 
 # imprimir_hola_mundo()
 # print(perimetro())
@@ -244,3 +266,7 @@ def cuenta_regresiva2(n: int):
 # eco_eco()
 # viaje_en_el_tiempo(2010, 2004)
 # viaje_a_aristoteles((-304))
+# imprimir_del_1_al_10_conFor()
+# eco_eco_conFor()
+# viaje_en_el_tiempo_conFor(2010, 2004)
+# viaje_a_aristoteles_conFor((-305))
