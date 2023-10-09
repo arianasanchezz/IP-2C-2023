@@ -1,8 +1,9 @@
 # Guia 7 - Funciones sobre listas (tipos complejos)
 #  EJERCICIOS HECHOS EN CLASE PRACTICA 9/10 MARCADOS CON UN (*)
 
+# PRIMERA PARTE
 # EJERCICIO 1
-# Ejercicio 1.1
+# Ejercicio 1.1 (*)
 def pertenece_1(s:[int], e:int) -> bool:
     return e in s
 
@@ -25,7 +26,7 @@ def pertenece_3(s:[int], e:int) -> bool:
     
     return res
 
-# Ejercicio 1.3
+# Ejercicio 1.3 (*)
 def suma_total(s:[int]) -> int:
     res: int = 0
     i: int = 0
@@ -36,7 +37,7 @@ def suma_total(s:[int]) -> int:
     
     return res
 
-# Ejercicio 1.7
+# Ejercicio 1.7 (*)
 def es_un_numero(caracter:str) -> bool:
     return (caracter <= '9') and (caracter >= '0')
 
@@ -84,6 +85,27 @@ def fortaleza(contraseña: str) -> str:
     else:
         return "AMARILLA"
 
+# SEGUNDA PARTE
+# EJERCICIO 2
+# Ejercicio 2.1 (*)
+def cero_en_posiciones_pares(s:[int]) -> [int]:
+    for i in range(0,len(s),2):
+        s[i] = 0
+    
+    return s
+
+# EJERCICIO 5
+# Ejercicio 5.1 (*)
+def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
+    i: int = 0
+    res: [bool] = []
+
+    while i < len(s):
+        res.append(pertenece_3(s[i],e))
+        i += 1
+    
+    return res
+
 
 # print(suma_total([1,2,3,60]))
 # print(pertenece_3([1,2,3],4))
@@ -99,9 +121,13 @@ def fortaleza(contraseña: str) -> str:
 # print(tiene_una_minuscula('HOLA'))
 # print(tiene_una_minuscula('HOLa'))
 
-print(fortaleza("Contraseña123"))
-print(fortaleza("contraseña123"))
-print(fortaleza("123"))
-print(fortaleza("holA"))
-print(fortaleza("Contraseña"))
-print(fortaleza("123456789"))
+#print(fortaleza("Contraseña123"))
+#print(fortaleza("contraseña123"))
+#print(fortaleza("123"))
+#print(fortaleza("holA"))
+#print(fortaleza("Contraseña"))
+#print(fortaleza("123456789"))
+
+#print(cero_en_posiciones_pares([1,2,3,4,5]))
+
+print(pertenece_a_cada_uno([[2,3],[1],[0,0,0],[],[1,2]], 2))
