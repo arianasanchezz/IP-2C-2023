@@ -88,7 +88,7 @@ def fortaleza(contraseña: str) -> str:
 # SEGUNDA PARTE
 # EJERCICIO 2
 # Ejercicio 2.1 (*)
-def cero_en_posiciones_pares(s:[int]) -> [int]:
+def cero_en_posiciones_pares(s:[int]) -> None:
     for i in range(0,len(s),2):
         s[i] = 0
     
@@ -128,6 +128,9 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
 #print(fortaleza("Contraseña"))
 #print(fortaleza("123456789"))
 
-#print(cero_en_posiciones_pares([1,2,3,4,5]))
+mi_lista:[int] = [0,1,2,3,4]
+print("Antes de la función:", mi_lista)
+cero_en_posiciones_pares(mi_lista)
+print("Después de la función:", mi_lista)
 
-print(pertenece_a_cada_uno([[2,3],[1],[0,0,0],[],[1,2]], 2))
+#print(pertenece_a_cada_uno([[2,3],[1],[0,0,0],[],[1,2]], 2))
