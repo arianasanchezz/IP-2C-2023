@@ -47,6 +47,15 @@ def suma_total(s:[int]) -> int:
     
     return res
 
+# Ejercicio 1.4
+def ordenados(s:[int]) -> bool:
+    i: int = 0
+
+    while i < len(s):
+        return s[i] < s[i+1]
+        
+        i += 1
+
 # Ejercicio 1.7 (*)
 def es_un_numero(caracter:str) -> bool:
     return (caracter <= '9') and (caracter >= '0')
@@ -147,3 +156,6 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
 
 #print(divide_a_todos([2,4,6],3))
 #print(divide_a_todos([10,25,40],5))
+
+# print(ordenados([1,2,3,4]))
+# print(ordenados([5,3,2,1]))
