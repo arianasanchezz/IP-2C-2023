@@ -56,6 +56,19 @@ def ordenados(s:[int]) -> bool:
         
         i += 1
 
+# Ejercicio 1.5
+def alguna_palabra_larga(s:[str]) -> bool:
+    i: int = 0
+    condicion: bool = False
+
+    while i < len(s) and not (condicion == True):
+        if len(s[i]) > 7:
+            condicion = True
+
+        i += 1
+        
+    return condicion
+
 # Ejercicio 1.7 (*)
 def es_un_numero(caracter:str) -> bool:
     return (caracter <= '9') and (caracter >= '0')
@@ -159,3 +172,6 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
 
 # print(ordenados([1,2,3,4]))
 # print(ordenados([5,3,2,1]))
+
+# print(alguna_palabra_larga(["Hola","Que","Tal","Ornitorrinco","Messi"]))
+# print(alguna_palabra_larga(["Hola","Que","Tal","Messi"]))
