@@ -116,6 +116,22 @@ def fortaleza(contraseña: str) -> str:
         return "ROJA"
     else:
         return "AMARILLA"
+    
+# Ejercicio 1.8
+def saldo_actual_banco(historial: list[tuple[str, float]]) -> float:
+    saldo_actual: float = 0
+ 
+    for tupla in historial:
+        if tupla[0] == "I":
+            saldo_actual += tupla[1]
+
+        if tupla[0] == "R":
+            saldo_actual -= tupla[1]
+    
+    return saldo_actual
+
+transacciones = [("I", 2000),("R", 20),("R", 1000),("I", 300)]
+print(saldo_actual_banco(transacciones))
 
 # SEGUNDA PARTE
 # EJERCICIO 2
