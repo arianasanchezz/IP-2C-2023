@@ -26,6 +26,16 @@ def pertenece_3(s:[int], e:int) -> bool:
     
     return res
 
+# Ejercicio 1.2
+def divide_a_todos(s:[int], e:int) -> bool:
+    condicion: bool = True
+    i: int = 0
+    while i < len(s):
+        if s[i] % e != 0:
+            return False
+        i += 1
+    return condicion
+
 # Ejercicio 1.3 (*)
 def suma_total(s:[int]) -> int:
     res: int = 0
@@ -128,9 +138,12 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
 #print(fortaleza("Contraseña"))
 #print(fortaleza("123456789"))
 
-mi_lista:[int] = [0,1,2,3,4]
-print("Antes de la función:", mi_lista)
-cero_en_posiciones_pares(mi_lista)
-print("Después de la función:", mi_lista)
+# mi_lista:[int] = [0,1,2,3,4]
+# print("Antes de la función:", mi_lista)
+# cero_en_posiciones_pares(mi_lista)
+# print("Después de la función:", mi_lista)
 
-#print(pertenece_a_cada_uno([[2,3],[1],[0,0,0],[],[1,2]], 2))
+# print(pertenece_a_cada_uno([[2,3],[1],[0,0,0],[],[1,2]], 2))
+
+#print(divide_a_todos([2,4,6],3))
+#print(divide_a_todos([10,25,40],5))
