@@ -130,8 +130,8 @@ def saldo_actual_banco(historial: list[tuple[str, float]]) -> float:
     
     return saldo_actual
 
-transacciones = [("I", 2000),("R", 20),("R", 1000),("I", 300)]
-print(saldo_actual_banco(transacciones))
+#transacciones = [("I", 2000),("R", 20),("R", 1000),("I", 300)]
+#print(saldo_actual_banco(transacciones))
 
 # SEGUNDA PARTE
 # EJERCICIO 2
@@ -141,6 +141,20 @@ def cero_en_posiciones_pares(s:[int]) -> None:
         s[i] = 0
     
     return s
+
+# Ejercicio 2.2
+def cero_en_posiciones_pares_in(s:[int]) -> [int]:
+    nueva_lista: [int] = []
+    i: int = 0
+
+    while i < len(s):
+        if (i % 2 == 0):
+            nueva_lista.append(0)
+        else:
+            nueva_lista.append(s[i])
+        i += 1
+
+    return nueva_lista
 
 # EJERCICIO 5
 # Ejercicio 5.1 (*)
@@ -191,3 +205,7 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
 
 # print(alguna_palabra_larga(["Hola","Que","Tal","Ornitorrinco","Messi"]))
 # print(alguna_palabra_larga(["Hola","Que","Tal","Messi"]))
+
+#mi_lista:[int] = [0,1,2,3,4]
+#print("Antes de la función:", mi_lista)
+#print("Aplicando la función:", cero_en_posiciones_pares_in(mi_lista))
