@@ -156,6 +156,26 @@ def cero_en_posiciones_pares_in(s:[int]) -> [int]:
 
     return nueva_lista
 
+# EJERCICIO 4
+# Ejercicio 4.1
+def crear_lista_de_estudiantes():
+    lista: [str] = []
+    nombre_estudiante: str = ""
+
+    while nombre_estudiante != "Listo":
+        nombre_estudiante = str(input("Ingrese el nombre del alumno. 'Listo' para terminar: "))
+
+        if nombre_estudiante != "Listo":
+            lista.append(nombre_estudiante)
+    
+    return lista
+
+lista_de_estudiantes = crear_lista_de_estudiantes()
+
+#print("Lista de estudiantes ingresados:")
+#for estudiante in lista_de_estudiantes:
+#    print(estudiante)
+
 # EJERCICIO 5
 # Ejercicio 5.1 (*)
 def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
