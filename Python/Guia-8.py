@@ -2,8 +2,10 @@ from queue import LifoQueue as Pila
 from queue import Queue as Cola
 import random
 
-# Guia 8
+# Guia 8 - Archivos, Pilas, Colas y Diccionarios
+# Ejercicios hechos en clase práctica 23/10 marcados con un (*)
 
+# PRIMERA PARTE - ARCHIVOS
 
 # Ejercicio 2 (*)
 def clonarSinComentarios(nombre_archivo: str):
@@ -65,7 +67,7 @@ def cantidadDeElementos(p: Pila) -> int:
 
 #print(cantidadDeElementos(p))
 
-# Ejercicio 16.1
+# Ejercicio 16.1 (*)
 
 def armarSecuenciaDeBingo() -> Cola:
     lista: list = list(range(0,99))
@@ -79,7 +81,7 @@ def armarSecuenciaDeBingo() -> Cola:
 
     return bolillero
 
-# Ejercicio 16.2
+# Ejercicio 16.2 (*)
 
 def jugar_carton_de_bingo(carton: [int], bolillero: Cola) -> int:
     cantidadSinMarcar: int = 0
@@ -104,7 +106,7 @@ def jugar_carton_de_bingo(carton: [int], bolillero: Cola) -> int:
 
     return jugadas
 
-# Ejercicio 19
+# Ejercicio 19 (*)
 
 def agrupar_por_longitud(nombre_archivo: str) -> dict:
     archivo = open(nombre_archivo, "r")
@@ -127,7 +129,7 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
 
     return d
 
-# Ejercicio 21
+# Ejercicio 21 (*)
 def laPalabraMasFrecuente(nombre_archivo: str) -> str:
     archivo = open(nombre_archivo, "r")
     d = dict()
@@ -153,5 +155,4 @@ def laPalabraMasFrecuente(nombre_archivo: str) -> str:
 
     return palabra_max
 
-
-print(laPalabraMasFrecuente('himno.txt'))
+# print(laPalabraMasFrecuente('himno.txt'))
