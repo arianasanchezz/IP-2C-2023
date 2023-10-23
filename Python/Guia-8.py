@@ -1,5 +1,6 @@
 from queue import LifoQueue as Pila
 from queue import Queue as Cola
+import random
 
 # Guia 8
 
@@ -21,12 +22,18 @@ def clonarSinComentarios(nombre_archivo: str):
 # Ejercicio 10 (*)
 def buscarElMaximo(p: Pila) -> int:
     maximo = p.get()
+    paux: Pila = Pila()
 
     while not p.empty():
         elem = p.get()
 
         if elem > maximo:
             maximo = elem
+        paux.put(elem)
+
+    while not paux.empty():
+        elem = paux.get()
+        p.put(elem)
     
     return maximo
 
@@ -43,15 +50,56 @@ p.put(1)
 
 def cantidadDeElementos(p: Pila) -> int:
     res: int = 0
+    paux: Pila = Pila()
 
     while not p.empty():
-        p.get()
+        elem = p.get()
+        paux.put(elem)
         res += 1
     
+    while not paux.empty():
+        elem = paux.get()
+        p.put(elem)
+
     return res
 
-print(cantidadDeElementos(p))
+#print(cantidadDeElementos(p))
 
+# Ejercicio 16.1
 
+def armarSecuenciaDeBingo() -> Cola:
+    lista: list = list(range(0,99))
+
+    random.shuffle(lista)
+
+    bolillero: Cola = Cola()
+
+    for bolilla in lista:
+        bolillero.put(bolilla)
+
+    return bolillero
+
+# Ejercicio 16.2
+
+def jugar_carton_de_bingo(carton: [int], bolillero: Cola) -> int:
+    cantidadSinMarcar: int = 0
+    jugadas: int = 0
+    bolilleroAux: Cola = Cola()
+
+    while cantidadSinMarcar > 0:
+        numero: int = bolillero.get()
+        bolilleroAux.put(numero)
+
+        if numero in carton:
+            cantidadSinMarcar -= 1
+        jugadas += 1
+
+    while not bolillero.empty():
+        numero: int = bolillero.get()
+        bolilleroAux.put(numero)
     
+    while not bolilleroAux.empty():
+        numero: int = bolilleroAux.get()
+        bolillero.put(numero)
 
+    return jugadas
