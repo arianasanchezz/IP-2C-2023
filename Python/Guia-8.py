@@ -126,3 +126,32 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
     archivo.close()
 
     return d
+
+# Ejercicio 21
+def laPalabraMasFrecuente(nombre_archivo: str) -> str:
+    archivo = open(nombre_archivo, "r")
+    d = dict()
+    lineas = archivo.readlines()
+
+    for linea in lineas:
+        palabras = linea.split()
+
+        for palabra in palabras:
+            if palabra in d:
+                d[palabra] += 1
+            
+            else:
+                d[palabra] = 1
+
+    frecuencia_max: int = 0
+    palabra_max: str
+
+    for palabra, frecuencia in d.items():
+        if frecuencia > frecuencia_max:
+            frecuencia_max = frecuencia
+            palabra_max = palabra
+
+    return palabra_max
+
+
+print(laPalabraMasFrecuente('himno.txt'))
