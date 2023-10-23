@@ -103,3 +103,26 @@ def jugar_carton_de_bingo(carton: [int], bolillero: Cola) -> int:
         bolillero.put(numero)
 
     return jugadas
+
+# Ejercicio 19
+
+def agrupar_por_longitud(nombre_archivo: str) -> dict:
+    archivo = open(nombre_archivo, "r")
+    d = dict()
+    lineas = archivo.readlines()
+
+    for linea in lineas:
+        palabras = linea.split()
+
+        for palabra in palabras:
+            longitud = len(palabra)
+
+            if longitud in d:
+                d[longitud] += 1
+
+            else:
+                d[longitud] = 1
+    
+    archivo.close()
+
+    return d
