@@ -49,12 +49,13 @@ def suma_total(s:[int]) -> int:
 
 # Ejercicio 1.4
 def ordenados(s:[int]) -> bool:
-    i: int = 0
+    res: bool = True
 
-    while i < len(s):
-        return s[i] < s[i+1]
-        
-        i += 1
+    for i in range(0, len(s)-1, 1):
+        if s[i] > s[i+1]:
+            res = False
+
+    return res
 
 # Ejercicio 1.5
 def alguna_palabra_larga(s:[str]) -> bool:
@@ -233,6 +234,22 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
     
     return res
 
+# Ejercicio 5.2
+def esMatriz(s: [[int]]) -> bool:
+    res: bool = True
+    
+    if len(s) == 0:
+        res = False
+    
+    primera_fila: [int] = s[0]
+    for fila in s:
+        if len(fila) != len(primera_fila) or len(primera_fila) == 0:
+            res = False
+
+    return res
+
+
+
 # falta terminar ej5, ej3 y el último de ej4
 
 # print(suma_total([1,2,3,60]))
@@ -268,6 +285,7 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
 
 # print(ordenados([1,2,3,4]))
 # print(ordenados([5,3,2,1]))
+# print(ordenados([1,2,4,3,5]))
 
 # print(alguna_palabra_larga(["Hola","Que","Tal","Ornitorrinco","Messi"]))
 # print(alguna_palabra_larga(["Hola","Que","Tal","Messi"]))
@@ -275,3 +293,17 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
 #mi_lista:[int] = [0,1,2,3,4]
 #print("Antes de la función:", mi_lista)
 #print("Aplicando la función:", cero_en_posiciones_pares_in(mi_lista))
+
+#matrizValida = [[1,2,3],[3,2,1],[3,3,3]]
+#matrizInvalida1 = [[],[1,2,3]]
+#matrizInvalida2 = [[1,2,3],[]]
+#matrizInvalida3 = [[]]
+#matrizInvalida4 = [[1,2,3,4],[1,2,3]]
+#matrizInvalida5 = [[1,2],[1,0,2],[2,1]]
+
+#print(esMatriz(matrizValida))
+#print(esMatriz(matrizInvalida1))
+#print(esMatriz(matrizInvalida2))
+#print(esMatriz(matrizInvalida3))
+#print(esMatriz(matrizInvalida4))
+#print(esMatriz(matrizInvalida5))
