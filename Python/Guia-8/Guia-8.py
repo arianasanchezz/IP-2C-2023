@@ -7,6 +7,28 @@ import random
 
 # PRIMERA PARTE - ARCHIVOS
 
+# Ejercicio 1.1
+def contar_lineas(nombre_archivo: str) -> int:
+    archivo = open(nombre_archivo, "r", encoding='utf8')
+    lineas = archivo.readlines()
+
+    return len(lineas)
+
+#print(contar_lineas('himno.txt'))
+
+# Ejercicio 1.2
+def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
+    archivo = open(nombre_archivo, "r")
+    res: bool = False
+
+    for linea in archivo.readlines():
+        pass
+
+    return res
+    
+#print(existe_palabra("pueblo", "himno.txt"))
+#print(existe_palabra("chileno", "himno.txt"))
+
 # Ejercicio 2 (*)
 def clonarSinComentarios(nombre_archivo: str):
     archivo = (nombre_archivo, "r")
@@ -20,6 +42,15 @@ def clonarSinComentarios(nombre_archivo: str):
     destino.close()
 
 # clonarSinComentarios("archivo-comentado.py")
+
+# Ejercicio 3
+def texto_reverso(nombre_archivo: str):
+    archivo = open(nombre_archivo, "r")
+    archivoDestino = open('reverso.txt', "w")
+    lineas = archivo.readlines()
+
+    for linea in lineas:
+        pass
 
 # Ejercicio 10 (*)
 def buscarElMaximo(p: Pila) -> int:

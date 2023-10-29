@@ -69,6 +69,17 @@ def alguna_palabra_larga(s:[str]) -> bool:
         
     return condicion
 
+# Ejercicio 1.6
+def esPalindromo(texto: str) -> bool:
+    textoSinEspacios = texto.replace(" ", "")
+    textoModificado = textoSinEspacios.lower()
+
+    return textoModificado == textoModificado[::-1]
+
+#print(esPalindromo("anilina"))
+#print(esPalindromo("Esto no es palindromo"))
+#print(esPalindromo("Anita lava la tina"))
+
 # Ejercicio 1.7 (*)
 def es_un_numero(caracter:str) -> bool:
     return (caracter <= '9') and (caracter >= '0')
@@ -156,25 +167,59 @@ def cero_en_posiciones_pares_in(s:[int]) -> [int]:
 
     return nueva_lista
 
-# EJERCICIO 4
-# Ejercicio 4.1
-def crear_lista_de_estudiantes():
-    lista: [str] = []
-    nombre_estudiante: str = ""
+# Ejercicio 2.3
+def sinVocales(texto: str):
+    vocales = ['a', 'e', 'i', 'o', 'u']
+    nuevoTexto: str = ""
 
-    while nombre_estudiante != "Listo":
-        nombre_estudiante = str(input("Ingrese el nombre del alumno. 'Listo' para terminar: "))
-
-        if nombre_estudiante != "Listo":
-            lista.append(nombre_estudiante)
+    for letra in texto:
+        if letra not in vocales:
+            nuevoTexto += letra
     
-    return lista
+    return nuevoTexto
 
-lista_de_estudiantes = crear_lista_de_estudiantes()
+#print(sinVocales("hola"))
 
-#print("Lista de estudiantes ingresados:")
-#for estudiante in lista_de_estudiantes:
-#    print(estudiante)
+# Ejercicio 2.4
+def reeemplazaVocales (texto: str) -> str:
+    vocales = ['a', 'e', 'i', 'o', 'u']
+    nuevoTexto: str = ""
+
+    for letra in texto:
+        if letra not in vocales:
+            nuevoTexto += letra
+        else:
+            nuevoTexto += '_'
+
+    return nuevoTexto
+
+#print(reeemplazaVocales("hola"))
+
+# Ejercicio 2.5
+def daVueltaStr(s: str) -> str:
+    texto_invertido: str = s[::-1]
+
+    return texto_invertido
+
+#print(daVueltaStr("hola"))
+
+# Ejercicio 2.6
+def eliminarRepetidos(s: str) -> str:
+    sin_repetidos: str = ""
+
+    for e in s:
+        if not pertenece_1(sin_repetidos, e):
+            sin_repetidos += e
+    
+    return sin_repetidos
+
+#print(eliminarRepetidos("hoolaaaa"))
+
+# EJERCICIO 3. Implementar una función para conocer el estado de aprobación de una materia a partir de las notas 
+#              obtenidas por un/a alumno/a
+
+# EJERCICIO 4
+# Archivos separados
 
 # EJERCICIO 5
 # Ejercicio 5.1 (*)
@@ -188,6 +233,7 @@ def pertenece_a_cada_uno(s:[[int]], e: int) -> [bool]:
     
     return res
 
+# falta terminar ej5, ej3 y el último de ej4
 
 # print(suma_total([1,2,3,60]))
 # print(pertenece_3([1,2,3],4))
