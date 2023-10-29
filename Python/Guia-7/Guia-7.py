@@ -248,9 +248,18 @@ def esMatriz(s: [[int]]) -> bool:
 
     return res
 
+# Ejercicio 5.3
+def filasOrdenadas(m: [[int]]) -> [bool]:
+    res: [bool] = []
+
+    for fila in range(0, len(m), 1):
+        res.append(ordenados(m[fila]))
+
+    return res
 
 
-# falta terminar ej5, ej3 y el último de ej4
+
+# falta terminar ej5-4, ej3 y el último de ej4
 
 # print(suma_total([1,2,3,60]))
 # print(pertenece_3([1,2,3],4))
@@ -290,20 +299,24 @@ def esMatriz(s: [[int]]) -> bool:
 # print(alguna_palabra_larga(["Hola","Que","Tal","Ornitorrinco","Messi"]))
 # print(alguna_palabra_larga(["Hola","Que","Tal","Messi"]))
 
-#mi_lista:[int] = [0,1,2,3,4]
-#print("Antes de la función:", mi_lista)
-#print("Aplicando la función:", cero_en_posiciones_pares_in(mi_lista))
+# mi_lista:[int] = [0,1,2,3,4]
+# print("Antes de la función:", mi_lista)
+# print("Aplicando la función:", cero_en_posiciones_pares_in(mi_lista))
 
-#matrizValida = [[1,2,3],[3,2,1],[3,3,3]]
-#matrizInvalida1 = [[],[1,2,3]]
-#matrizInvalida2 = [[1,2,3],[]]
-#matrizInvalida3 = [[]]
-#matrizInvalida4 = [[1,2,3,4],[1,2,3]]
-#matrizInvalida5 = [[1,2],[1,0,2],[2,1]]
+# matrizValida = [[1,2,3],[3,2,1],[3,3,3]]
+# matrizInvalida1 = [[],[1,2,3]]
+# matrizInvalida2 = [[1,2,3],[]]
+# matrizInvalida3 = [[]]
+# matrizInvalida4 = [[1,2,3,4],[1,2,3]]
+# matrizInvalida5 = [[1,2],[1,0,2],[2,1]]
+# print(esMatriz(matrizValida))
+# print(esMatriz(matrizInvalida1))
+# print(esMatriz(matrizInvalida2))
+# print(esMatriz(matrizInvalida3))
+# print(esMatriz(matrizInvalida4))
+# print(esMatriz(matrizInvalida5))
 
-#print(esMatriz(matrizValida))
-#print(esMatriz(matrizInvalida1))
-#print(esMatriz(matrizInvalida2))
-#print(esMatriz(matrizInvalida3))
-#print(esMatriz(matrizInvalida4))
-#print(esMatriz(matrizInvalida5))
+# matrizFilasOrdenadas = [[1,2,3,4],[5,6,7,8]]
+# matrizFilasDesordenadas = [[1,2,3,4],[1,2,4,3],[5,2,6,1]]
+# print(filasOrdenadas(matrizFilasOrdenadas))
+# print(filasOrdenadas(matrizFilasDesordenadas))
