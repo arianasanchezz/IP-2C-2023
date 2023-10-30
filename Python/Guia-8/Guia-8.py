@@ -68,9 +68,15 @@ def texto_reverso(nombre_archivo: str):
     archivo = open(nombre_archivo, "r")
     archivoDestino = open('reverso.txt', "w")
     lineas = archivo.readlines()
+    lineas_al_reves = lineas[::-1]
 
-    for linea in lineas:
-        pass
+    for linea in lineas_al_reves:
+        archivoDestino.write(linea)
+
+    archivo.close()
+    archivoDestino.close()
+
+# texto_reverso("himno.txt")
 
 # SEGUNDA PARTE - PILAS
 p = Pila()
@@ -82,10 +88,25 @@ p.get()
 p.get()
 p.put(12)
 p.put(1)
+p.put(5)
 
 # Ejercicio 9
 def cantidad_elementos(p: Pila) -> int:
-    pass
+    res: int = 0
+    paux: Pila = Pila()
+
+    while not p.empty():
+        elem = p.get()
+        res += 1
+        paux.put(elem)
+
+    while not paux.empty():
+        elem = paux.get()
+        p.put(elem)
+
+    return res
+
+# print(cantidad_elementos(p))
 
 # Ejercicio 10 (*)
 def buscarElMaximo(p: Pila) -> int:
