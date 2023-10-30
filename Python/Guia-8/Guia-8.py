@@ -20,10 +20,13 @@ def contar_lineas(nombre_archivo: str) -> int:
 def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
     archivo = open(nombre_archivo, "r")
     res: bool = False
+    lineas = archivo.readlines()
 
-    for linea in archivo.readlines():
-        pass
-
+    for linea in lineas:
+        palabras = linea.split()
+        if palabra in palabras:
+            res = True
+        
     return res
     
 #print(existe_palabra("pueblo", "himno.txt"))
