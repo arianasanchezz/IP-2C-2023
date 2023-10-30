@@ -176,7 +176,7 @@ c.put(5)
 c.put(6)
 
 # Ejercicio 14
-def cantidad_elementos(c: Cola) -> int:
+def cantidad_elementos_C(c: Cola) -> int:
     res: int = 0
     c_aux: Cola = Cola()
 
@@ -191,7 +191,26 @@ def cantidad_elementos(c: Cola) -> int:
 
     return res
 
-# print(cantidad_elementos(c))
+# print(cantidad_elementos_C(c))
+
+# Ejercicio 15
+def buscar_el_maximo_C(c: Cola) -> int:
+    maximo: int = 0
+    c_aux: Cola = Cola()
+
+    while not c.empty():
+        elem = c.get()
+        if elem > maximo:
+            maximo = elem
+        c_aux.put(elem)
+
+    while not c_aux.empty():
+        elem = c_aux.get()
+        c.put(elem)
+
+    return maximo
+
+# print(buscar_el_maximo_C(c))
 
 # Ejercicio 16.1 (*)
 
