@@ -79,6 +79,24 @@ def texto_reverso(nombre_archivo: str):
 # texto_reverso("himno.txt")
 
 # SEGUNDA PARTE - PILAS
+
+# Ejercicio 8
+def generar_nros_al_azar(n:int, desde: int, hasta: int) -> Pila:
+    pila: Pila = Pila()
+
+    for i in range(0, n):
+        elem = random.randint(desde, hasta)
+        pila.put(elem)
+
+    return pila
+
+# pila_nros_al_azar = generar_nros_al_azar(3, 1, 10)
+# mi_lista = []
+# mi_lista.append(pila_nros_al_azar.get())
+# mi_lista.append(pila_nros_al_azar.get())
+# mi_lista.append(pila_nros_al_azar.get())
+# print(mi_lista)
+
 p = Pila()
 p.put(1)
 p.put(2)
