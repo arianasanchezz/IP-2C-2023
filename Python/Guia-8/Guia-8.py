@@ -51,8 +51,8 @@ def cantidad_apariciones(nombre_archivo: str, palabra: str) -> int:
 
 # Ejercicio 2 (*)
 def clonarSinComentarios(nombre_archivo: str):
-    archivo = (nombre_archivo, "r")
-    destino = ('sinComentarios.py', "w")
+    archivo = open(nombre_archivo, "r")
+    destino = open('sinComentarios.py', "w")
 
     for linea in archivo.readlines():
         if linea.strip()[0] != "#":
