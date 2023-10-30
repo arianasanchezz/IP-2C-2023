@@ -165,6 +165,34 @@ def cantidadDeElementos(p: Pila) -> int:
 
 # TERCERA PARTE - COLAS
 
+c = Cola()
+c.put(1)
+c.put(2)
+c.put(3)
+c.get()
+c.put(4)
+c.get()
+c.put(5)
+c.put(6)
+
+# Ejercicio 14
+def cantidad_elementos(c: Cola) -> int:
+    res: int = 0
+    c_aux: Cola = Cola()
+
+    while not c.empty():
+        elem = c.get()
+        res += 1
+        c_aux.put(elem)
+    
+    while not c_aux.empty():
+        elem = c_aux.get()
+        c.put(elem)
+
+    return res
+
+# print(cantidad_elementos(c))
+
 # Ejercicio 16.1 (*)
 
 def armarSecuenciaDeBingo() -> Cola:
