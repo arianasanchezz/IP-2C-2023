@@ -47,7 +47,7 @@ def cantidad_apariciones(nombre_archivo: str, palabra: str) -> int:
     
     return res
 
-# print(cantidad_apariciones("himno.txt", "gloria"))            -tiene un error
+# print(cantidad_apariciones("himno.txt", "gloria"))            *tiene un error
 
 # Ejercicio 2 (*)
 def clonarSinComentarios(nombre_archivo: str):
@@ -72,6 +72,21 @@ def texto_reverso(nombre_archivo: str):
     for linea in lineas:
         pass
 
+# SEGUNDA PARTE - PILAS
+p = Pila()
+p.put(1)
+p.put(2)
+p.put(45)
+p.put(80)
+p.get()
+p.get()
+p.put(12)
+p.put(1)
+
+# Ejercicio 9
+def cantidad_elementos(p: Pila) -> int:
+    pass
+
 # Ejercicio 10 (*)
 def buscarElMaximo(p: Pila) -> int:
     maximo = p.get()
@@ -90,16 +105,7 @@ def buscarElMaximo(p: Pila) -> int:
     
     return maximo
 
-p = Pila()
-p.put(1)
-p.put(2)
-p.put(45)
-p.put(80)
-p.get()
-p.get()
-p.put(12)
-p.put(1)
-#print(buscarElMaximo(p))
+# print(buscarElMaximo(p))
 
 def cantidadDeElementos(p: Pila) -> int:
     res: int = 0
@@ -117,6 +123,8 @@ def cantidadDeElementos(p: Pila) -> int:
     return res
 
 #print(cantidadDeElementos(p))
+
+# TERCERA PARTE - COLAS
 
 # Ejercicio 16.1 (*)
 
@@ -156,6 +164,8 @@ def jugar_carton_de_bingo(carton: [int], bolillero: Cola) -> int:
         bolillero.put(numero)
 
     return jugadas
+
+# CUARTA PARTE - DICCIONARIOS
 
 # Ejercicio 19 (*)
 
