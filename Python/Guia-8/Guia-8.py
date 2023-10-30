@@ -32,6 +32,23 @@ def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
 #print(existe_palabra("pueblo", "himno.txt"))
 #print(existe_palabra("chileno", "himno.txt"))
 
+# Ejercicio 1.3
+def cantidad_apariciones(nombre_archivo: str, palabra: str) -> int:
+    archivo = open(nombre_archivo, "r")
+    res: int = 0
+    lineas = archivo.readlines()
+
+    for linea in lineas:
+        palabras = linea.split()
+        
+        for i in range(0, len(palabras), 1):
+            if palabra == palabras[i]:
+                res += 1
+    
+    return res
+
+# print(cantidad_apariciones("himno.txt", "gloria"))            -tiene un error
+
 # Ejercicio 2 (*)
 def clonarSinComentarios(nombre_archivo: str):
     archivo = (nombre_archivo, "r")
