@@ -186,4 +186,4 @@ def laPalabraMasFrecuente(nombre_archivo: str) -> str:
 
     return palabra_max
 
-# print(laPalabraMasFrecuente('himno.txt'))
+print(laPalabraMasFrecuente("himno.txt"))

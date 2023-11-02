@@ -259,7 +259,7 @@ def filasOrdenadas(m: [[int]]) -> [bool]:
 
 
 
-# falta terminar ej5-4, ej3 y el último de ej4
+# falta terminar ej1-9, ej5-4, ej3 y el último de ej4
 
 # print(suma_total([1,2,3,60]))
 # print(pertenece_3([1,2,3],4))
