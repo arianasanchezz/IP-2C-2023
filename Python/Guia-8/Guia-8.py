@@ -20,19 +20,39 @@ def contar_lineas(nombre_archivo: str) -> int:
 def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
     archivo = open(nombre_archivo, "r")
     res: bool = False
+    lineas = archivo.readlines()
 
-    for linea in archivo.readlines():
-        pass
-
+    for linea in lineas:
+        palabras = linea.split()
+        if palabra in palabras:
+            res = True
+        
     return res
     
 #print(existe_palabra("pueblo", "himno.txt"))
 #print(existe_palabra("chileno", "himno.txt"))
 
+# Ejercicio 1.3
+def cantidad_apariciones(nombre_archivo: str, palabra: str) -> int:
+    archivo = open(nombre_archivo, "r")
+    res: int = 0
+    lineas = archivo.readlines()
+
+    for linea in lineas:
+        palabras = linea.split()
+        
+        for i in range(0, len(palabras), 1):
+            if palabra == palabras[i]:
+                res += 1
+    
+    return res
+
+# print(cantidad_apariciones("himno.txt", "gloria"))            *tiene un error
+
 # Ejercicio 2 (*)
 def clonarSinComentarios(nombre_archivo: str):
-    archivo = (nombre_archivo, "r")
-    destino = ('sinComentarios.py', "w")
+    archivo = open(nombre_archivo, "r")
+    destino = open('sinComentarios.py', "w")
 
     for linea in archivo.readlines():
         if linea.strip()[0] != "#":
@@ -48,9 +68,63 @@ def texto_reverso(nombre_archivo: str):
     archivo = open(nombre_archivo, "r")
     archivoDestino = open('reverso.txt', "w")
     lineas = archivo.readlines()
+    lineas_al_reves = lineas[::-1]
 
-    for linea in lineas:
-        pass
+    for linea in lineas_al_reves:
+        archivoDestino.write(linea)
+
+    archivo.close()
+    archivoDestino.close()
+
+# texto_reverso("himno.txt")
+
+# SEGUNDA PARTE - PILAS
+
+# Ejercicio 8
+def generar_nros_al_azar(n:int, desde: int, hasta: int) -> Pila:
+    pila: Pila = Pila()
+
+    for i in range(0, n):
+        elem = random.randint(desde, hasta)
+        pila.put(elem)
+
+    return pila
+
+# pila_nros_al_azar = generar_nros_al_azar(3, 1, 10)
+# mi_lista = []
+# mi_lista.append(pila_nros_al_azar.get())
+# mi_lista.append(pila_nros_al_azar.get())
+# mi_lista.append(pila_nros_al_azar.get())
+# print(mi_lista)
+
+p = Pila()
+p.put(1)
+p.put(2)
+p.put(45)
+p.put(80)
+p.get()
+p.get()
+p.put(12)
+p.put(1)
+p.put(5)
+
+# Ejercicio 9
+def cantidad_elementos(p: Pila) -> int:
+    res: int = 0
+    paux: Pila = Pila()
+
+    while not p.empty():
+        elem = p.get()
+        res += 1
+        paux.put(elem)
+
+    while not paux.empty():
+        elem = paux.get()
+        p.put(elem)
+
+    return res
+
+# print(cantidad_elementos(p))
 
 # Ejercicio 10 (*)
 def buscarElMaximo(p: Pila) -> int:
@@ -70,16 +144,7 @@ def buscarElMaximo(p: Pila) -> int:
     
     return maximo
 
-p = Pila()
-p.put(1)
-p.put(2)
-p.put(45)
-p.put(80)
-p.get()
-p.get()
-p.put(12)
-p.put(1)
-#print(buscarElMaximo(p))
+# print(buscarElMaximo(p))
 
 def cantidadDeElementos(p: Pila) -> int:
     res: int = 0
@@ -97,6 +162,55 @@ def cantidadDeElementos(p: Pila) -> int:
     return res
 
 #print(cantidadDeElementos(p))
+
+# TERCERA PARTE - COLAS
+
+c = Cola()
+c.put(1)
+c.put(2)
+c.put(3)
+c.get()
+c.put(4)
+c.get()
+c.put(5)
+c.put(6)
+
+# Ejercicio 14
+def cantidad_elementos_C(c: Cola) -> int:
+    res: int = 0
+    c_aux: Cola = Cola()
+
+    while not c.empty():
+        elem = c.get()
+        res += 1
+        c_aux.put(elem)
+    
+    while not c_aux.empty():
+        elem = c_aux.get()
+        c.put(elem)
+
+    return res
+
+# print(cantidad_elementos_C(c))
+
+# Ejercicio 15
+def buscar_el_maximo_C(c: Cola) -> int:
+    maximo: int = 0
+    c_aux: Cola = Cola()
+
+    while not c.empty():
+        elem = c.get()
+        if elem > maximo:
+            maximo = elem
+        c_aux.put(elem)
+
+    while not c_aux.empty():
+        elem = c_aux.get()
+        c.put(elem)
+
+    return maximo
+
+# print(buscar_el_maximo_C(c))
 
 # Ejercicio 16.1 (*)
 
@@ -136,6 +250,8 @@ def jugar_carton_de_bingo(carton: [int], bolillero: Cola) -> int:
         bolillero.put(numero)
 
     return jugadas
+
+# CUARTA PARTE - DICCIONARIOS
 
 # Ejercicio 19 (*)
 
