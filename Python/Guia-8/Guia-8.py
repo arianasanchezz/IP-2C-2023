@@ -187,6 +187,60 @@ def cantidadDeElementos(p: Pila) -> int:
 
 #print(cantidadDeElementos(p))
 
+# Ejercicio 11
+def esta_bien_balanceada(s: str) -> bool:
+    pila_de_parentesis = Pila()
+
+    for caracter in s:
+        if caracter == "(":
+            pila_de_parentesis.put(caracter)
+        elif caracter == ")":
+            if pila_de_parentesis.empty():
+                return False
+            pila_de_parentesis.get()
+    
+    return cantidad_elementos(pila_de_parentesis) == 0  #falta terminar
+
+formula1 = "1 + ( 2 x 3 - ( 20 / 5 ) )"
+formula2 = "10 * ( 1 + ( 2 * ( -1))"
+formula3 = "1 + ) 2 x 3 ( ( )"
+#print(esta_bien_balanceada(formula1))
+#print(esta_bien_balanceada(formula2))
+#print(esta_bien_balanceada(formula3))
+
+# Ejercicio 12
+def evaluar_expresion(expresion: str) -> int:
+    tokens = expresion.split()
+    operadores = ['+', '-', '*', '/']
+    pila_de_operandos: Pila = Pila()
+
+    for token in tokens:
+        if token not in operadores:
+            pila_de_operandos.put(int(token))
+
+        elif token in operadores:
+            operando2 = pila_de_operandos.get()
+            operando1 = pila_de_operandos.get()
+            res: int = 0
+            
+            if token == '+':
+                res = operando1 + operando2
+            elif token == '-':
+                res = operando1 - operando2
+            elif token == '*':
+                res = operando1 * operando2
+            elif token == '/':
+                res = operando1 / operando2
+            
+            pila_de_operandos.put(res)
+
+    return pila_de_operandos.get()
+
+expresion = "3 4 + 5 * 2 -"
+resultado = evaluar_expresion(expresion)
+print(resultado)
+
+
 # TERCERA PARTE - COLAS
 
 c = Cola()
