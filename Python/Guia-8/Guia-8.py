@@ -47,7 +47,7 @@ def cantidad_apariciones(nombre_archivo: str, palabra: str) -> int:
     
     return res
 
-# print(cantidad_apariciones("himno.txt", "gloria"))            *tiene un error
+# print(cantidad_apariciones("himno.txt", "gloria"))           # *tiene un error
 
 # Ejercicio 2 (*)
 def clonarSinComentarios(nombre_archivo: str):
@@ -77,6 +77,26 @@ def texto_reverso(nombre_archivo: str):
     archivoDestino.close()
 
 # texto_reverso("himno.txt")
+
+# Ejercicio 4
+def agregar_al_final(nombre_archivo: str, frase: str):
+    archivo = open(nombre_archivo, "a")
+    archivo.write("\n" + frase + "\n")
+    archivo.close()
+
+# agregar_al_final("reverso.txt", "HIMNO NACIONAL ARGENTINO")
+
+# Ejercicio 5
+def agregar_al_principio(nombre_archivo: str, frase: str):
+    archivo = open(nombre_archivo, "r")
+    contenido_original = archivo.read()
+    archivo.close()
+
+    archivo = open(nombre_archivo, "w")
+    archivo.write(frase + "\n" + contenido_original)
+    archivo.close()
+
+# agregar_al_principio("himno.txt", "HIMNO NACIONAL ARGENTINO")
 
 # SEGUNDA PARTE - PILAS
 
@@ -302,4 +322,4 @@ def laPalabraMasFrecuente(nombre_archivo: str) -> str:
 
     return palabra_max
 
-print(laPalabraMasFrecuente("himno.txt"))
+# print(laPalabraMasFrecuente("himno.txt"))
