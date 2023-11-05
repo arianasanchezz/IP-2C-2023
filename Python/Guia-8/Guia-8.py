@@ -98,6 +98,10 @@ def agregar_al_principio(nombre_archivo: str, frase: str):
 
 # agregar_al_principio("himno.txt", "HIMNO NACIONAL ARGENTINO")
 
+# Ejercicio 6 - Implementar una función que lea un archivo en modo binario y devuelva la lista de palabras legibles (despues lo hago)
+
+# Ejercicio 7 
+
 # SEGUNDA PARTE - PILAS
 
 # Ejercicio 8

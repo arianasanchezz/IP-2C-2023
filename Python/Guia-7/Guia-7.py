@@ -219,6 +219,30 @@ def eliminarRepetidos(s: str) -> str:
 # EJERCICIO 3. Implementar una función para conocer el estado de aprobación de una materia a partir de las notas 
 #              obtenidas por un/a alumno/a
 
+def aprobado(notas: [int]) -> int:
+    promedio: int = suma_total(notas) / len(notas)
+    todas_mayor_o_igual_a4: bool = True
+
+    for nota in notas:
+        if nota < 4:
+            todas_mayor_o_igual_a4 = False
+        
+    if todas_mayor_o_igual_a4 and promedio >= 7:
+        return 1
+    
+    elif todas_mayor_o_igual_a4 and (promedio >= 4) and (promedio < 7):
+        return 2
+    
+    else:
+        return 3
+    
+notas_promedio_7 = [8,8,10]
+notas_promedio_4 = [4,6,5]
+notas_desaprobado = [1,2,2,1]
+#print(aprobado(notas_promedio_7))
+#print(aprobado(notas_promedio_4))
+#print(aprobado(notas_desaprobado))
+
 # EJERCICIO 4
 # Archivos separados
 
