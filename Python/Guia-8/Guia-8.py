@@ -238,7 +238,7 @@ def evaluar_expresion(expresion: str) -> int:
 
 expresion = "3 4 + 5 * 2 -"
 resultado = evaluar_expresion(expresion)
-print(resultado)
+#print(resultado)                    # me salio :D
 
 
 # TERCERA PARTE - COLAS
@@ -252,6 +252,8 @@ c.put(4)
 c.get()
 c.put(5)
 c.put(6)
+
+# Ejercicio 13
 
 # Ejercicio 14
 def cantidad_elementos_C(c: Cola) -> int:
@@ -328,6 +330,26 @@ def jugar_carton_de_bingo(carton: [int], bolillero: Cola) -> int:
         bolillero.put(numero)
 
     return jugadas
+
+# Ejercicio 17
+def n_pacientes_urgentes(c: Cola[int, str, str]) -> int:
+    pacientes_urgentes: int = 0
+
+    while not c.empty():
+        paciente = c.get()
+        if paciente[0] >= 1 and paciente[0] <= 3:
+            pacientes_urgentes += 1
+    
+    return pacientes_urgentes
+
+guardia_hospital: Cola = Cola()
+guardia_hospital.put([10, "Pepe", "General"])
+guardia_hospital.put([2, "Fulano", "General"])
+guardia_hospital.put([3, "Mengano", "General"])
+guardia_hospital.put([7, "Menganito", "General"])
+guardia_hospital.put([1, "Fulanito", "General"])
+
+# print(n_pacientes_urgentes(guardia_hospital))
 
 # CUARTA PARTE - DICCIONARIOS
 
