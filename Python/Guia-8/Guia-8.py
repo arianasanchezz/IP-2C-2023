@@ -417,6 +417,47 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
 
     return d
 
+# Ejercicio 20 - Desarrollar un navegador web muy simple que debe llevar un registro de los sitios web visitados por los
+         # usuarios del sistema. El navegador debe permitir al usuario navegar hacia atrás y hacia adelante en la historia de navegación.
+         # Las claves del diccionario serán los nombres de usuario y los valores serán pilas
+
+def visitar_sitio(historiales: dict, usuario: str, sitio: str):  # recibe el diccionario de historiales,
+    if usuario in historiales:                                   # el nombre de usuario y el sitio web visitado. 
+        historiales[usuario].put(sitio)               # agrega el sitio web al historial del usuario correspondiente.
+    else:
+        historiales[usuario] = Pila()
+        historiales[usuario].put(sitio)
+
+historiales_aux = {}        # creo un diccionario auxiliar para almacenar los sitios visitados recientemente al navegar atrás
+def navegar_atras(historiales: dict, usuario: str):
+    if usuario in historiales:
+        visitado = historiales[usuario].get()
+        if usuario not in historiales_aux:
+            historiales_aux[usuario] = Pila()
+        historiales_aux[usuario].put(visitado)
+
+def navegar_adelante(historiales: dict, usuario: str):
+    if usuario in historiales:
+        visitado = historiales_aux[usuario].get()
+        historiales[usuario].put(visitado)
+
+historiales = {}
+visitar_sitio(historiales, "Usuario1", "google.com")
+visitar_sitio(historiales, "Usuario1", "facebook.com")
+navegar_atras(historiales, "Usuario1")
+visitar_sitio(historiales, "Usuario2", "youtube.com")
+navegar_atras(historiales, "Usuario2")
+navegar_adelante(historiales, "Usuario1")
+visitar_sitio(historiales, "Usuario2", "twitter.com")
+visitar_sitio(historiales, "Usuario1", "twitter.com")
+visitar_sitio(historiales, "Usuario2", "youtube.com")
+navegar_atras(historiales, "Usuario2")
+navegar_atras(historiales, "Usuario1")
+navegar_adelante(historiales, "Usuario2")
+
+#for usuario, historial in historiales.items():
+    #print(f"Historial de {usuario}: {list(historial.queue)}")
+
 # Ejercicio 21 (*)
 def laPalabraMasFrecuente(nombre_archivo: str) -> str:
     archivo = open(nombre_archivo, "r")
