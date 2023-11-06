@@ -417,7 +417,35 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
 
     return d
 
-# Ejercicio 20 - Desarrollar un navegador web muy simple que debe llevar un registro de los sitios web visitados por los
+# Ejercicio 21 (*)
+def laPalabraMasFrecuente(nombre_archivo: str) -> str:
+    archivo = open(nombre_archivo, "r")
+    d = dict()
+    lineas = archivo.readlines()
+
+    for linea in lineas:
+        palabras = linea.split()
+
+        for palabra in palabras:
+            if palabra in d:
+                d[palabra] += 1
+            
+            else:
+                d[palabra] = 1
+
+    frecuencia_max: int = 0
+    palabra_max: str
+
+    for palabra, frecuencia in d.items():
+        if frecuencia > frecuencia_max:
+            frecuencia_max = frecuencia
+            palabra_max = palabra
+
+    return palabra_max
+
+# print(laPalabraMasFrecuente("himno.txt"))
+
+# Ejercicio 22 - Desarrollar un navegador web muy simple que debe llevar un registro de los sitios web visitados por los
          # usuarios del sistema. El navegador debe permitir al usuario navegar hacia atrás y hacia adelante en la historia de navegación.
          # Las claves del diccionario serán los nombres de usuario y los valores serán pilas
 
@@ -457,31 +485,3 @@ navegar_adelante(historiales, "Usuario2")
 
 #for usuario, historial in historiales.items():
     #print(f"Historial de {usuario}: {list(historial.queue)}")
-
-# Ejercicio 21 (*)
-def laPalabraMasFrecuente(nombre_archivo: str) -> str:
-    archivo = open(nombre_archivo, "r")
-    d = dict()
-    lineas = archivo.readlines()
-
-    for linea in lineas:
-        palabras = linea.split()
-
-        for palabra in palabras:
-            if palabra in d:
-                d[palabra] += 1
-            
-            else:
-                d[palabra] = 1
-
-    frecuencia_max: int = 0
-    palabra_max: str
-
-    for palabra, frecuencia in d.items():
-        if frecuencia > frecuencia_max:
-            frecuencia_max = frecuencia
-            palabra_max = palabra
-
-    return palabra_max
-
-# print(laPalabraMasFrecuente("himno.txt"))
