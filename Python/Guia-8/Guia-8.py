@@ -351,6 +351,47 @@ guardia_hospital.put([1, "Fulanito", "General"])
 
 # print(n_pacientes_urgentes(guardia_hospital))
 
+# Ejercicio 18
+def a_clientes(c: Cola((str, int, bool, bool))) -> Cola((str, int, bool, bool)):
+    cola_prioridad: Cola = Cola()
+    cola_preferencial: Cola = Cola()
+    cola_resto: Cola = Cola()
+
+    while not c.empty():
+        cliente = c.get()
+
+        if cliente[3] == True:
+            cola_prioridad.put(cliente)
+        elif cliente[2] == True:
+            cola_preferencial.put(cliente)
+        else:
+            cola_resto.put(cliente)
+
+    cola_final: Cola = Cola()
+    while not cola_prioridad.empty():
+        cliente_con_prioridad = cola_prioridad.get()
+        cola_final.put(cliente_con_prioridad)
+    while not cola_preferencial.empty():
+        cliente_preferencial = cola_preferencial.get()
+        cola_final.put(cliente_preferencial)
+    while not cola_resto.empty():
+        cliente_comun = cola_resto.get()
+        cola_final.put(cliente_comun)
+    
+    return cola_final
+
+cola_ingreso = Cola()
+cola_ingreso.put(("Alfre Montes de Oca", 12345678, True, True))
+cola_ingreso.put(("Jazmin Badia", 98765432, False, False))
+cola_ingreso.put(("German Beder", 56789012, True, False))
+cola_ingreso.put(("Luquitas Rodríguez", 34567890, False, True))
+
+cola_atencion = a_clientes(cola_ingreso)
+
+while not cola_atencion.empty():
+    cliente = cola_atencion.get()
+#   print(f"Atendiendo a {cliente[0]} (DNI: {cliente[1]})")
+
 # CUARTA PARTE - DICCIONARIOS
 
 # Ejercicio 19 (*)
