@@ -417,6 +417,8 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
 
     return d
 
+# Ejercicio 20
+
 # Ejercicio 21 (*)
 def laPalabraMasFrecuente(nombre_archivo: str) -> str:
     archivo = open(nombre_archivo, "r")
@@ -485,3 +487,36 @@ navegar_adelante(historiales, "Usuario2")
 
 #for usuario, historial in historiales.items():
     #print(f"Historial de {usuario}: {list(historial.queue)}")
+
+# Ejercicio 23
+def agregar_producto(inventario: dict, nombre: str, precio: int, cantidad: int):
+    if nombre not in inventario:
+        inventario[nombre] = {"precio": precio, "cantidad": cantidad}
+    
+def actualizar_stock(inventario: dict, nombre: str, cantidad: int):
+    if nombre in inventario:
+        inventario[nombre]["cantidad"] = cantidad
+
+def actualizar_precios(inventario: dict, nombre: str, precio: int):
+    if nombre in inventario:
+        inventario[nombre]["precio"] = precio
+
+def calcular_valor_inventario(inventario: dict):
+    valor_total: int = 0
+
+    for producto, info in inventario.items():
+        precio = info["precio"]
+        cantidad = info["cantidad"]
+        valor_total += (precio * cantidad)
+
+    return valor_total
+
+inventario = {}
+agregar_producto(inventario, "Camisa", 20.0, 50)
+agregar_producto(inventario, "Pantalon", 30.0, 30)
+actualizar_stock(inventario, "Camisa", 10)
+valor_total = calcular_valor_inventario(inventario)
+#print("Valor total del inventario:", valor_total) # Deberıa imprimir 1300.00 ??
+
+
+# faltan ejs 6, 7, 13 y 20
